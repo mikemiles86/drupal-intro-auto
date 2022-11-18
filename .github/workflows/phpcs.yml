@@ -1,9 +1,7 @@
 name: php-codesniffer-review
 run-name: PHP Codesniffer review started by @${{ github.actor }}
 
-on:
-  push:
-    branches: ["main"]
+on: [pull_request]
 
 permissions:
   contents: read
