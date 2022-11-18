@@ -1,0 +1,13 @@
+<?php
+
+/**
+ * @file
+ * Contains my_test_module.module.
+ */
+
+/** 
+ * Implements hook-preprocess_html()
+ * */
+function my_test_module_preprocess_html(&$variables) {
+    $do = 'nothing';
+}

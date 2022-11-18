@@ -1,0 +1,19 @@
+name: php-codesniffer-review
+run-name: PHP Codesniffer review started by @${{ github.actor }}
+
+on: [pull_request]
+
+permissions:
+  contents: read
+
+jobs:
+  run-php-codesniffer:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Install dependencies
+      run: composer install --prefer-dist --no-progress
+
+    - name: Check Drupal coding standards on custom modules
+      run: ./vendor/bin/phpcs --standard="Drupal" --extensions="php,module,inc,install,test,profile,theme,css,info" web/modules/custom
