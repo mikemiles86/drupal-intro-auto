@@ -1,0 +1,29 @@
+# CircleCI integration for testing Drupal 9 automation
+version: 2.1
+
+defaults: &defaults
+  docker:
+    - image: cimg/php:8.1
+  environment:
+      working_directory: ~/var/www/html
+
+jobs:
+  phpunit:
+    <<: *defaults
+    steps:
+      - checkout
+      - run:
+          name: "Install dependencies"
+          command: composer install --prefer-dist --no-progress
+      - run:
+          name: "Run PHP Unit tests"
+          command: vendor/phpunit/phpunit/phpunit -c . --debug --verbose --log-junit var/artifacts/phpunit/phpunit.xml web/modules/custom
+
+workflows:
+  version: 2.1
+  test_code:
+    jobs:
+      - phpunit:
+          filters:
+            branches:
+              ignore: main
