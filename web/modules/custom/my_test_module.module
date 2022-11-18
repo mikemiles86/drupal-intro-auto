@@ -4,3 +4,7 @@
  * @file
  * Contains my_test_module.module.
  */
+
+function my_test_module_preprocess_html(&$variables) {
+    $do = 'nothing';
+}
