@@ -70,6 +70,8 @@
         }
     },
     "require-dev": {
-        "drupal/coder": "^8.3"
+        "drupal/coder": "^8.3",
+        "drupal/core-dev": "^9.4",
+        "phpspec/prophecy-phpunit": "^2.0"
     }
 }
